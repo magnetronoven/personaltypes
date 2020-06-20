@@ -26,5 +26,38 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'aaa',
+            'lastname' => 'aaa',
+            'profile' => 'INTP',
+            'team_id' => 2,
+            'position_id' => 1,
+            'role_id' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'bbb',
+            'lastname' => 'bbb',
+            'profile' => 'INTP',
+            'team_id' => 2,
+            'position_id' => 1,
+            'role_id' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'ccc',
+            'lastname' => 'ccc',
+            'profile' => 'INTP',
+            'team_id' => 2,
+            'position_id' => 1,
+            'role_id' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }
