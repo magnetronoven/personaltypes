@@ -33,6 +33,7 @@ class CatagoryController extends Controller
             'players' => User::where('team_id', $team->id)->get(),
             'catagory' => $catagory,
             'themes' => $themes,
+            'team' => $team,
         ]);
     }
 }

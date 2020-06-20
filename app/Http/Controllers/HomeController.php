@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Catagory;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $teams = Auth::user()->teams()->with('players')->get();
+        $catagory = Catagory::first();
+
+        return view('home', [
+            'teams' => $teams,
+            'catagory' => $catagory,
+        ]);
     }
 }

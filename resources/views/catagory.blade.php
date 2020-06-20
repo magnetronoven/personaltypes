@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <h2>{{$catagory->catagory}}</h2>
+    <h4>{{$team->name}}</h4>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -14,26 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
                 @foreach($players as $player)
                     <tr>
-                        <td scope="col">{{$player->name}}</td>
+                        <td scope="col">{{$player->name." ".$player->lastname}}</td>
                         <td scope="col">{{$player->profile}}</td>
                         @foreach($themes as $theme)
-                            <td scope="col">{{getMBTIType($theme->theme)}}</td>
+                            <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>
                         @endforeach
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    @foreach($players as $player)
-        {{$player->name}}
-    @endforeach
 </div>
 @endsection

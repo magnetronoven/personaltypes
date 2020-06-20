@@ -1,0 +1,14 @@
+.m-catagory {
+    &__info {
+        color: white!important;
+        height: 23px;
+        line-height: 8px;
+        margin-left: 10px;
+    }
+
+    &__type {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+}
