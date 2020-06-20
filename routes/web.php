@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/cms', 'CmsController@index')->name('cms');
+
+Route::model('teams', 'Team');
+Route::resource('cms/teams', 'TeamController');
+
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');
