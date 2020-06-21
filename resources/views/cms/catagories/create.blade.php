@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h3>Voeg catagorie toe</h3>
+    <h3>Voeg categorie toe</h3>
     <form id="catagory-form" method="POST" action="{{ route('catagories.store') }}" enctype="multipart/form-data">
         @csrf
         
         <div class="form-group">
-            <label for="catagory">Naam</label>
+            <label for="catagory">Categorie</label>
             <input class="form-control @error('catagory') is-invalid @enderror" value="{{ old('catagory') }}" type="text" name="catagory" id="catagory">
 
             @error('catagory')

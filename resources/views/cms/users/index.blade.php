@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('catagories.create') }}">Maak nieuw categorie aan</a>
+    <a href="{{ route('users.create') }}">Maak nieuw user aan</a>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -13,11 +13,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($catagories as $catagory)
+                @foreach($users as $user)
                     <tr>
-                        <td scope="col">{{$catagory->id}}</td>
-                        <td scope="col"><a href="{{ route('catagories.show', ['catagory' => $catagory->catagory]) }}">{{$catagory->catagory}}</a></td>
-                        <td scope="col"><a href="{{ route('catagories.edit', ['catagory' => $catagory->catagory]) }}">Wijzig</a></td>
+                        <td scope="col">{{$user->id}}</td>
+                        <td scope="col">{{$user->name." ".$user->lastname}}</td>
+                        <td scope="col"><a href="{{ route('users.edit', ['user' => $user->id]) }}">Wijzig</a></td>
                     </tr>
                 @endforeach
             </tbody>

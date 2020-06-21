@@ -5,6 +5,7 @@ namespace App\Http\Controllers\cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Catagory;
+use App\Theme;
 
 class CatagoryController extends Controller
 {
@@ -14,6 +15,14 @@ class CatagoryController extends Controller
 
         return view('cms.catagories.index', [
             'catagories' => $catagories,
+        ]);
+    }
+
+    public function show(Catagory $catagory)
+    {
+        return view('cms.catagories.show', [
+            'catagory' => $catagory,
+            'themes' => Theme::where('catagory_id', $catagory->id)->get(),
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Team;
+use App\User;
 
 class TeamController extends Controller
 {
@@ -14,6 +15,14 @@ class TeamController extends Controller
 
         return view('cms.teams.index', [
             'teams' => $teams,
+        ]);
+    }
+
+    public function show(Team $team)
+    {
+        return view('cms.teams.show', [
+            'team' => $team,
+            'players' => User::where('team_id', $team->id)->get(),
         ]);
     }
 
@@ -52,7 +61,7 @@ class TeamController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'name' => ['required'],
+            'name' => ['required', 'unique:teams'],
         ]);
     }
 }
