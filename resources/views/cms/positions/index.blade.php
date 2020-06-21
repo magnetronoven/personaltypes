@@ -2,22 +2,22 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('teams.create') }}">Maak nieuw team aan</a>
+    <a href="{{ route('positions.create') }}">Maak nieuw positie aan</a>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Naam</th>
+                    <th scope="col">Positie</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($teams as $team)
+                @foreach($positions as $position)
                     <tr>
-                        <td scope="col">{{$team->id}}</td>
-                        <td scope="col">{{$team->name}}</td>
-                        <td scope="col"><a href="{{ route('teams.edit', ['team' => $team->name]) }}">Wijzig</a></td>
+                        <td scope="col">{{$position->id}}</td>
+                        <td scope="col">{{$position->position}}</td>
+                        <td scope="col"><a href="{{ route('positions.edit', ['position' => $position->id]) }}">Wijzig</a></td>
                     </tr>
                 @endforeach
             </tbody>

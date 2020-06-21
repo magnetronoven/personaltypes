@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cms', 'CmsController@index')->name('cms');
 
-Route::model('teams', 'Team');
-Route::resource('cms/teams', 'TeamController');
+Route::resource('cms/teams', 'cms\TeamController');
+Route::resource('cms/positions', 'cms\PositionController');
 
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');

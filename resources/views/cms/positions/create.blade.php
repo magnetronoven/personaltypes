@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <h3>Voeg team toe</h3>
-    <form id="team-form" method="POST" action="{{ route('teams.store') }}" enctype="multipart/form-data">
+    <form id="position-form" method="POST" action="{{ route('positions.store') }}" enctype="multipart/form-data">
         @csrf
         
         <div class="form-group">
-            <label for="name">Naam</label>
-            <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text" name="name" id="name">
+            <label for="position">Positie</label>
+            <input class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}" type="text" name="position" id="position">
 
-            @error('name')
+            @error('position')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

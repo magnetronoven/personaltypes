@@ -4,15 +4,15 @@
 <div class="container">
 
     <h3>Wijzig team</h3>
-    <form id="team-form" method="POST" action="{{ route('teams.update', ['team' => $team->name]) }}">
+    <form id="position-form" method="POST" action="{{ route('positions.update', ['position' => $position->id]) }}">
         @csrf
         @method('PUT')
         
         <div class="form-group">
-            <label for="name">Naam</label>
-            <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $team->name) }}" type="text" name="name" id="name">
+            <label for="position">Positie</label>
+            <input class="form-control @error('position') is-invalid @enderror" value="{{ old('position', $position->position) }}" type="text" name="position" id="position">
 
-            @error('name')
+            @error('position')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -25,7 +25,7 @@
         </div>
     </form>
 
-    <form method="POST" id="delete-form" action="{{ route('teams.destroy', ['team' => $team->name]) }}" onsubmit="return confirm('Weet je zeker dat je deze wilt verwijderen?');">
+    <form method="POST" id="delete-form" action="{{ route('positions.destroy', ['position' => $position->id]) }}" onsubmit="return confirm('Weet je zeker dat je deze wilt verwijderen?');">
         @csrf
         @method('DELETE')
     </form>
