@@ -21,5 +21,6 @@ Route::get('/cms', 'CmsController@index')->name('cms');
 
 Route::resource('cms/teams', 'cms\TeamController');
 Route::resource('cms/positions', 'cms\PositionController');
+Route::resource('cms/catagories', 'cms\CatagoryController');
 
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');
