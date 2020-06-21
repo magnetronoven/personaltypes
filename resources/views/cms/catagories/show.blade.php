@@ -16,7 +16,7 @@
             <tbody>
                 @foreach($themes as $theme)
                     <tr>
-                        <td scope="col">{{$theme->theme}}</td>
+                        <td scope="col"><a href="{{ route('themes.show', ['theme' => $theme->id]) }}">{{$theme->theme}}</a></td>
                         <td scope="col"><a href="{{ route('themes.edit', ['theme' => $theme->id]) }}">Wijzig</a></td>
                     </tr>
                 @endforeach

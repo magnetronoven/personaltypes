@@ -7,7 +7,7 @@
         @csrf
         
         <div class="form-group">
-            <label for="catagory">Thema</label>
+            <label for="theme">Thema</label>
             <input class="form-control @error('theme') is-invalid @enderror" value="{{ old('theme') }}" type="text" name="theme" id="theme">
 
             @error('theme')

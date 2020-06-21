@@ -1,9 +1,10 @@
 .m-catagory {
     &__info {
         color: white!important;
-        height: 23px;
         line-height: 8px;
         margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
     }
 
     &__type {

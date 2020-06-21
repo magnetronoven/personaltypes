@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="m-cms container">
+    @include('inc.breadcrumb', ['location' => 'CMS'])
     <ul>
         <li><a href="{{ route('users.index') }}">Alle gebruikers/leden</a></li>
         <li><a href="{{ route('teams.index') }}">Alle teams</a></li>

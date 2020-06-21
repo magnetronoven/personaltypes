@@ -6,6 +6,7 @@ use App\Catagory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Theme;
+use App\Type;
 
 class ThemeController extends Controller
 {
@@ -18,9 +19,19 @@ class ThemeController extends Controller
         ]);
     }
 
+    public function show(Theme $theme)
+    {
+        return view('cms.themes.show', [
+            'theme' => $theme,
+            'types' => Type::where('theme_id', $theme->id)->get(),
+        ]);
+    }
+
     public function create(Request $request)
     {
+        // Must have a catagory
         if(!$request->has('catagory')) abort(403);
+
         return view('cms.themes.create', [
             'catagory' => Catagory::where('catagory', $request->input('catagory'))->first(),
         ]);
@@ -35,7 +46,7 @@ class ThemeController extends Controller
     public function edit(Theme $theme)
     {
         return view('cms.themes.edit', [
-            'catagory' => $theme,
+            'theme' => $theme,
         ]);
     }
 

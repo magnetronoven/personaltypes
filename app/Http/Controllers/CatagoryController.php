@@ -31,6 +31,7 @@ class CatagoryController extends Controller
         
         return view('catagory', [
             'players' => User::where('team_id', $team->id)->get(),
+            'catagories' => Catagory::all(),
             'catagory' => $catagory,
             'themes' => $themes,
             'team' => $team,

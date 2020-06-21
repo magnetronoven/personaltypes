@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/8ccf398d8a.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -33,7 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @if(isset($catagories) && isset($team) && isset($catagory))
+                            @foreach($catagories as $catagory)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('catagory', ['team' => $team, 'catagory' => $catagory]) }}">{{$catagory->catagory}}</a>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
