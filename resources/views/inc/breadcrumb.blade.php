@@ -4,8 +4,9 @@ $stringToLink = [
     'CMS' => route('cms'),
     'Users' => route('users.index'),
     'Teams' => route('teams.index'),
-    'Positie' => route('positions.index'),
-    'Thema' => route('themes.index'),
+    'Posities' => route('positions.index'),
+    "Thema's" => route('themes.index'),
+    'Categorieën' => route('catagories.index'),
 ]
 
 ?>
@@ -15,9 +16,9 @@ $stringToLink = [
         <?php $navArray = explode('/', $location); ?>
         @foreach($navArray as $key => $nav)
             @if($key == count($navArray) - 1)
-                <li class="breadcrumb-item active" aria-current="page"><a href="{{$stringToLink[$nav]}}">{{$nav}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$nav}}</li>
             @else
-                <li class="breadcrumb-item"><a href="#"><a href="{{$stringToLink[$nav]}}">{{$nav}}</a></a></li>
+                <li class="breadcrumb-item"><a href="{{$stringToLink[$nav]}}">{{$nav}}</a></li>
             @endif
         @endforeach
     </ol>

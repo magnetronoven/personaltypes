@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Thema's"])
     <!-- <a href="{{ route('themes.create') }}">Maak nieuw thema aan</a> -->
     <div class="table-responsive">
         <table class="table table-striped">
