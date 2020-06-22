@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cms', 'cms\CmsController@index')->name('cms');
@@ -27,7 +27,6 @@ Route::resource('cms/catagories', 'cms\CatagoryController');
 Route::resource('cms/users', 'cms\UserController');
 Route::resource('cms/themes', 'cms\ThemeController');
 Route::resource('cms/types', 'cms\TypeController');
-
 
 Route::get('/user/{user}', 'UserController@show')->name('showuser');
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');

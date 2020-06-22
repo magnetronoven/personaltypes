@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h3>wijzig speler/user</h3>
+	<h3>Voeg speler/user toe</h3>
 	<form id="user-form" method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
 		@csrf
 		
@@ -75,7 +75,14 @@
 			</select>
 		</div>
 
-		<input name="role_id" type="hidden" value="1">
+		<div class="form-group">
+			<label for="roles">Rol</label>
+			<select name="roles[]" id="roles" multiple>
+				@foreach($roles as $role)
+					<option @if(Request::get('role') == $role->role) selected @endif value="{{$role->id}}">{{$role->role}}</option>
+				@endforeach
+			</select>
+		</div>
 
 		<button type="submit" class="btn btn-primary">Opslaan</button>
 	</form>

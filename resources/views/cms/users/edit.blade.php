@@ -83,7 +83,14 @@
             </select>
         </div>
 
-        <input name="role_id" type="hidden" value="1">
+        <div class="form-group">
+			<label for="roles">Rol</label>
+			<select name="roles[]" id="roles" multiple>
+				@foreach($roles as $role)
+					<option @if($user->roles->contains($role->id)) selected @endif value="{{$role->id}}">{{$role->role}}</option>
+				@endforeach
+			</select>
+		</div>
 
         <div class="m-form__action--buttons">
             <button type="submit" class="btn btn-primary">Opslaan</button>

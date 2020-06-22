@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach($team->users as $player)
                         <tr>
-                            <td scope="col">{{$player->name." ".$player->lastname}}</td>
+                            <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                             <td scope="col">{{$player->profile}}</td>
                             @foreach($themes as $theme)
                                 <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>
@@ -48,7 +48,7 @@
                 <tbody>
                     @foreach($players as $player)
                         <tr>
-                            <td scope="col">{{$player->name." ".$player->lastname}}</td>
+                            <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                             <td scope="col">{{$player->profile}}</td>
                             @foreach($themes as $theme)
                                 <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>

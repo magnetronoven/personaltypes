@@ -15,11 +15,12 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('checkRole:lid,admin');
     }
     
     public function index()
     {
-        $users = User::All();
+        $users = User::with('roles')->get();
 
         return view('cms.users.index', [
             'users' => $users,
@@ -28,8 +29,11 @@ class UserController extends Controller
 
     public function admins()
     {
-        $role = Role::where('role', 'admin')->first();
-        $users = User::where('role_id', $role->id)->get();
+        $users = User::with('roles')->whereHas(
+            'roles', function($q){
+                $q->where('role', 'admin');
+            }
+        )->get();
 
         return view('cms.users.admins', [
             'users' => $users,
@@ -41,12 +45,14 @@ class UserController extends Controller
         return view('cms.users.create', [
             'team' => Team::where('name', $request->input('team'))->first(),
             'positions' => Position::all(),
+            'roles' => Role::all(),
         ]);
     }
 
     public function store(Request $request)
     {
-        User::create($this->validateform());
+        $user = User::create($this->validateform());
+        $user->roles()->attach(request('roles'));
 
         if($request->has('team_id')) {
             return redirect()->route('teams.show', ['team' => Team::where('id', request("team_id"))->first()->name]);
@@ -61,6 +67,7 @@ class UserController extends Controller
             'user' => $user,
             'positions' => Position::all(),
             'teams' => Team::all(),
+            'roles' => Role::all(),
         ]);
     }
 
@@ -77,9 +84,9 @@ class UserController extends Controller
         $user->profile = request("profile");
         $user->email = request("email");
         $user->team_id = request("team_id");
-        $user->role_id = request("role_id");
         $user->position_id = request("position_id");
         $user->save();
+        $user->roles()->sync(request('roles'));
 
         if($request->has('team_id') && !is_null(request("team_id"))) {
             return redirect()->route('teams.show', ['team' => Team::where('id', request("team_id"))->first()->name]);
@@ -103,8 +110,8 @@ class UserController extends Controller
             'email' => ['nullable'],
             'password' => ['nullable'],
             'team_id' => ['nullable'],
-            'role_id' => ['required'],
             'position_id' => ['nullable'],
+            'roles' => ['nullable', 'array'],
         ]);
     }
 }

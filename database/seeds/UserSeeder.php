@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             'profile' => 'INTP',
             'team_id' => 1,
             'position_id' => 1,
-            'role_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -33,7 +32,6 @@ class UserSeeder extends Seeder
             'profile' => 'INTP',
             'team_id' => 2,
             'position_id' => 1,
-            'role_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -44,7 +42,6 @@ class UserSeeder extends Seeder
             'profile' => 'INTP',
             'team_id' => 2,
             'position_id' => 1,
-            'role_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -55,7 +52,6 @@ class UserSeeder extends Seeder
             'profile' => 'INTP',
             'team_id' => 2,
             'position_id' => 1,
-            'role_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
