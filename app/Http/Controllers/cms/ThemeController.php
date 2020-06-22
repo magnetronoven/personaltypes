@@ -10,6 +10,11 @@ use App\Type;
 
 class ThemeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $themes = Theme::All();

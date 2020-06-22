@@ -9,6 +9,11 @@ use App\Theme;
 
 class CatagoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $catagories = Catagory::All();

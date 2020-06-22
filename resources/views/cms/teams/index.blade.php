@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @include('inc.breadcrumb', ['location' => 'CMS/Teams'])
+    <h3>Teams</h3>
     <a href="{{ route('teams.create') }}">Maak nieuw team aan</a>
     <div class="table-responsive">
         <table class="table table-striped">

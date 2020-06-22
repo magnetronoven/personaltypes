@@ -46,12 +46,4 @@ class User extends Authenticatable
     public function setPasswordAttribute($pass){
         $this->attributes['password'] = Hash::make($pass);
     }
-
-    // public function setPosition_idAttribute($position_id){
-    //     if($position_id == "null"){
-    //         $this->attributes['position_id'] = null; 
-    //     } else {
-    //         $this->attributes['position_id'] = $position_id; 
-    //     }
-    // }
 }

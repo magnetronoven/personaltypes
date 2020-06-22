@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach($team->players as $player)
                                 <tr>
-                                    <td scope="col">{{$player->name." ".$player->lastname}}</td>
+                                    <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                                     <td scope="col">{{$player->profile}}</td>
                                 </tr>
                             @endforeach

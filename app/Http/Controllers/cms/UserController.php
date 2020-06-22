@@ -7,15 +7,31 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Team;
 use App\Position;
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $users = User::All();
 
         return view('cms.users.index', [
+            'users' => $users,
+        ]);
+    }
+
+    public function admins()
+    {
+        $role = Role::where('role', 'admin')->first();
+        $users = User::where('role_id', $role->id)->get();
+
+        return view('cms.users.admins', [
             'users' => $users,
         ]);
     }

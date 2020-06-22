@@ -19,7 +19,7 @@
         
         <div class="form-group">
             <label for="description">Beschrijving</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="10">{{ old('description') }}</textarea>
 
             @error('type')
                 <span class="invalid-feedback" role="alert">

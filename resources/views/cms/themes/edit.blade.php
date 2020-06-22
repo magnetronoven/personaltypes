@@ -20,7 +20,15 @@
 
         <input name="catagory_id" type="hidden" value="{{ $theme->catagory_id }}">
 
-        <button type="submit" class="btn btn-primary">Opslaan</button>
+        <div class="m-form__action--buttons">
+            <button type="submit" class="btn btn-primary">Opslaan</button>
+            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>
+        </div>
+    </form>
+
+    <form method="POST" id="delete-form" action="{{ route('themes.destroy', ['theme' => $theme->id]) }}" onsubmit="return confirm('Weet je zeker dat je deze wilt verwijderen?');">
+        @csrf
+        @method('DELETE')
     </form>
 </div>
 @endsection

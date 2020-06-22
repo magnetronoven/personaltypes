@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3>Voeg speler/user toe</h3>
+    <h3>Wijzig speler/user</h3>
     <form id="user-form" method="POST" action="{{ route('users.update', ['user' => $user->id]) }}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
@@ -85,7 +85,15 @@
 
         <input name="role_id" type="hidden" value="1">
 
-        <button type="submit" class="btn btn-primary">Opslaan</button>
+        <div class="m-form__action--buttons">
+            <button type="submit" class="btn btn-primary">Opslaan</button>
+            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>
+        </div>
+    </form>
+
+    <form method="POST" id="delete-form" action="{{ route('users.destroy', ['user' => $user->id]) }}" onsubmit="return confirm('Weet je zeker dat je deze wilt verwijderen?');">
+        @csrf
+        @method('DELETE')
     </form>
 </div>
 @endsection

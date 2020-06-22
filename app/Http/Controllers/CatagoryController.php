@@ -19,15 +19,7 @@ class CatagoryController extends Controller
 
     public function index(Team $team, Catagory $catagory)
     {
-        // $coachingTeams = Auth::user()->teams;
-        // dd($coachingTeams);
-        // foreach($coachingTeams as $coachingTeam) {
-            
-        // }
-
         $themes = $catagory->themes()->with('types')->get();
-        // $themes = Theme::where('catagory_id', $catagory->id)->get();
-        // $types = Type::where('catagory_id', $catagory->id)->get();
         
         return view('catagory', [
             'players' => User::where('team_id', $team->id)->get(),
