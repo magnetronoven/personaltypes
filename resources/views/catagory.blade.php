@@ -43,6 +43,7 @@
                         <th scope="col">Naam</th>
                         <th scope="col">Profiel</th>
                         <th scope="col">DMD</th>
+                        <th scope="col">Positie</th>
                         @foreach($themes as $theme)
                             <th scope="col">{{$theme->theme}}</th>
                         @endforeach
@@ -54,6 +55,7 @@
                             <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                             <td scope="col">{{$player->profile}}</td>
                             <td scope="col">{{$player->dmd}}</td>
+                            <td scope="col">{{$player->position->position}}</td>
                             @foreach($themes as $theme)
                                 <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>
                             @endforeach

@@ -8,7 +8,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Naam</th>
                     <th scope="col"></th>
                 </tr>
@@ -16,7 +15,6 @@
             <tbody>
                 @foreach($teams as $team)
                     <tr>
-                        <td scope="col">{{$team->id}}</td>
                         <td scope="col"><a href="{{ route('teams.show', ['team' => $team->name]) }}">{{$team->name}}</a></td>
                         <td scope="col"><a href="{{ route('teams.edit', ['team' => $team->name]) }}">Wijzig</a></td>
                     </tr>

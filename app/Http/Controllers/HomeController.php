@@ -26,11 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         // Has no role -> other home screen
-        if(Auth::user()->hasNoRole()) {
+        $user = Auth::user();
+        if($user->hasNoRole()) {
             return redirect()->route('profile');
         }
 
-        $teams = Auth::user()->teams()->with('players')->get();
+        $teams = $user->teams()->with('players')->get();
         $catagory = Catagory::first();
 
         return view('home', [

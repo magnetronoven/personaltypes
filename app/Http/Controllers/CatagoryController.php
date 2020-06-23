@@ -23,7 +23,7 @@ class CatagoryController extends Controller
         $themes = $catagory->themes()->with('types')->get();
         
         return view('catagory', [
-            'players' => User::where('team_id', $team->id)->get(),
+            'players' => User::where('team_id', $team->id)->with('position')->get(),
             'catagories' => Catagory::all(),
             'catagory' => $catagory,
             'themes' => $themes,

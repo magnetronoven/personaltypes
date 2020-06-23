@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+    public function position()
+    {
+        return $this->hasOne('App\Position', 'id', 'position_id');
+    }
+
     public function setPasswordAttribute($pass){
         $this->attributes['password'] = Hash::make($pass);
     }

@@ -73,7 +73,18 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $this->validateform();
+        // Unique email field requires weird validation ¯\_(ツ)_/¯
+        request()->validate([
+            'name' => ['required'],
+            'lastname' => ['required'],
+            'profile' => ['nullable'],
+            'dmd' => ['nullable'],
+            'email' => ['nullable', 'unique:users,email,'.$user->id],
+            'password' => ['nullable'],
+            'team_id' => ['nullable'],
+            'position_id' => ['nullable'],
+            'roles' => ['nullable', 'array'],
+        ]);
 
         if($request->has('checkpassword')){
             $user->password = request("password");
@@ -109,7 +120,7 @@ class UserController extends Controller
             'lastname' => ['required'],
             'profile' => ['nullable'],
             'dmd' => ['nullable'],
-            'email' => ['nullable'],
+            'email' => ['nullable', 'unique:users'],
             'password' => ['nullable'],
             'team_id' => ['nullable'],
             'position_id' => ['nullable'],
