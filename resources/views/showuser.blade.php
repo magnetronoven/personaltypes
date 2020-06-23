@@ -17,7 +17,11 @@
                 <tbody>
                     <tr>
                         <td>Profiel</td>
-                       <td scope="col">{{$user->profile}}</td>
+                        <td scope="col">{{$user->profile}}</td>
+                    </tr>
+                    <tr>
+                        <td>DMD</td>
+                        <td scope="col">{{$user->dmd}}</td>
                     </tr>
                 </tbody>
             </table>

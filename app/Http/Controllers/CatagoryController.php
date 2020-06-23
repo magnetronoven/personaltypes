@@ -15,6 +15,7 @@ class CatagoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('checkRole:admin,coach');
     }
 
     public function index(Team $team, Catagory $catagory)

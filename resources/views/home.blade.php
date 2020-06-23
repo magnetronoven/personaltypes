@@ -17,6 +17,7 @@
                             <tr>
                                 <th scope="col">Naam</th>
                                 <th scope="col">Profiel</th>
+                                <th scope="col">DMD</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,6 +25,7 @@
                                 <tr>
                                     <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                                     <td scope="col">{{$player->profile}}</td>
+                                    <td scope="col">{{$player->dmd}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

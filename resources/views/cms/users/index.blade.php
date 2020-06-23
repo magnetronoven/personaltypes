@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3>Leden/Users</h3>
+    <h3>Leden/Gebruikers</h3>
     <a href="{{ route('users.create') }}">Maak nieuw user aan</a>
     <div class="table-responsive">
         <table class="table table-striped">

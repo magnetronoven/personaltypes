@@ -18,13 +18,11 @@ class CreateTypesTable extends Migration
             $table->string('keywords');
             $table->string('description')->nullable();
             $table->string('hyperlink')->nullable();
-            $table->string('connected_mbti');
+            $table->string('connected_mbti')->nullable();
             $table->unsignedBigInteger('theme_id');
             $table->timestamps();
 
             $table->foreign('theme_id')->references('id')->on('themes')->onDelete('cascade');
-
-            
         });
     }
 

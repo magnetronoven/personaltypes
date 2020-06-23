@@ -36,7 +36,6 @@ class TypeController extends Controller
         
     public function store(Request $request)
     {
-        // dd($request);
         Type::create($this->validateform());
         return redirect()->route('themes.show', ['theme' => Theme::where('id', $request->input('theme_id'))->first()]);
     }
@@ -51,7 +50,10 @@ class TypeController extends Controller
     public function update(Request $request, Type $type)
     {
         $this->validateform();
-        $type->theme = request("type");
+        $type->keywords = request("keywords");
+        $type->description = request("description");
+        $type->hyperlink = request("hyperlink");
+        $type->connected_mbti = request("connected_mbti");
         $type->save();
         return redirect()->route('types.index');
     }
@@ -68,7 +70,7 @@ class TypeController extends Controller
             'keywords' => ['required'],
             'description' => ['nullable'],
             'hyperlink' => ['nullable'],
-            'connected_mbti' => ['required'],
+            'connected_mbti' => ['nullable'],
             'theme_id' => ['required'],
         ]);
     }

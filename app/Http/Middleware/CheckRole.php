@@ -15,16 +15,12 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
-        $requestedUser = $request->route()->parameter('user');
-
-        foreach(Auth::user()->roles as $userrole) {
-            if($userrole->role === $role) {
-                return $next($request);
-            }
+        if(Auth::user()->hasAnyRole($roles)) {
+            return $next($request);
         }
-        
+
         return abort(401);
     }
 }

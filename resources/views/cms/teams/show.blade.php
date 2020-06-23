@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h3>{{$team->name}}</h3>
     <a href="{{ route('users.create', ['team' => $team->name]) }}">Voeg speler toe</a>
     <div class="table-responsive">
         <table class="table table-striped">

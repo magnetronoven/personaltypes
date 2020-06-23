@@ -1,9 +1,21 @@
 <?php
 function getMBTIType($player, $types) {
-
     foreach($types as $type) {
-        if(strpos($player->profile, $type->connected_mbti) !== false) {
-            return $type;
+        $tags = explode(',', $type->connected_mbti);
+
+        foreach ($tags as $tag) {
+            $isInString = true;
+            $chars = str_split($tag);
+
+            foreach($chars as $char) {
+                if(!preg_match("/{$char}/", $player->profile)) {
+                    $isInString = false;
+                }
+            }
+
+            if($isInString) {
+                return $type;
+            }
         }
     }
     return false;

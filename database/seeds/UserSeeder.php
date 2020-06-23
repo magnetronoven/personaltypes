@@ -30,6 +30,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'aaa',
             'lastname' => 'aaa',
+            'email' => 'test@test.com',
+            'password' => Hash::make('test'),
             'profile' => 'INTP',
             'dmd' => 'Ai Ce',
             'team_id' => 2,

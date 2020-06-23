@@ -14,8 +14,8 @@ class UserController extends Controller
 
     public function __construct() {
         $this->middleware('auth');
-        $this->middleware('checkRole:eigen-profiel-zien')->only('profile');
-        $this->middleware('checkRole:admin')->only('show');
+        // $this->middleware('checkRole:eigen-profiel-zien')->only('profile');
+        $this->middleware('checkRole:admin,coach')->only('show');
     }
 
     public function show(User $user)
