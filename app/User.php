@@ -77,4 +77,12 @@ class User extends Authenticatable
         return false;
     }
 
+    public function hasNoRole()
+    {
+        if($this->roles()->get()->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
 }
