@@ -12,6 +12,7 @@ class TeamController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('checkRole:admin');
     }
     
     public function index()
@@ -33,27 +34,49 @@ class TeamController extends Controller
 
     public function create()
     {
-        return view('cms.teams.create');
+        $coaches = User::with('roles')->whereHas(
+            'roles', function($q){
+                $q->where('role', 'coach');
+            }
+        )->get();
+
+        return view('cms.teams.create', [
+            'coaches' => $coaches,
+        ]);
     }
 
     public function store(Request $request)
     {
-        Team::create($this->validateform());
+        $team = Team::create($this->validateform());
+        $team->users()->attach(request('users'));
+
         return redirect()->route('teams.index');
     }
 
     public function edit(Team $team)
     {
+        $coaches = User::with('roles')->whereHas(
+            'roles', function($q){
+                $q->where('role', 'coach');
+            }
+        )->get();
+
         return view('cms.teams.edit', [
             'team' => $team,
+            'coaches' => $coaches,
         ]);
     }
 
     public function update(Request $request, Team $team)
     {
-        $this->validateform();
+        // Unique name field requires weird validation ¯\_(ツ)_/¯
+        request()->validate([
+            'name' => 'required|unique:teams,name,'.$team->id,
+        ]);
         $team->name = request("name");
         $team->save();
+        $team->users()->sync(request('users'));
+
         return redirect()->route('teams.index');
     }
 

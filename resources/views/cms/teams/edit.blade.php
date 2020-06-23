@@ -19,6 +19,15 @@
             @enderror
         </div>
 
+        <div class="form-group">
+			<label for="users">Coaches</label>
+			<select name="users[]" id="users" multiple>
+				@foreach($coaches as $coach)
+					<option @if($team->users->contains($coach->id)) selected @endif value="{{$coach->id}}">{{$coach->name." ".$coach->lastname}}</option>
+				@endforeach
+			</select>
+		</div>
+
         <div class="m-form__action--buttons">
             <button type="submit" class="btn btn-primary">Opslaan</button>
             <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>

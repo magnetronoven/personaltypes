@@ -15,7 +15,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware('checkRole:lid,admin');
+        $this->middleware('checkRole:admin');
     }
     
     public function index()
@@ -82,6 +82,7 @@ class UserController extends Controller
         $user->name = request("name");
         $user->lastname = request("lastname");
         $user->profile = request("profile");
+        $user->dmd = request("dmd");
         $user->email = request("email");
         $user->team_id = request("team_id");
         $user->position_id = request("position_id");
@@ -107,6 +108,7 @@ class UserController extends Controller
             'name' => ['required'],
             'lastname' => ['required'],
             'profile' => ['nullable'],
+            'dmd' => ['nullable'],
             'email' => ['nullable'],
             'password' => ['nullable'],
             'team_id' => ['nullable'],

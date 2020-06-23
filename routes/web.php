@@ -28,5 +28,6 @@ Route::resource('cms/users', 'cms\UserController');
 Route::resource('cms/themes', 'cms\ThemeController');
 Route::resource('cms/types', 'cms\TypeController');
 
+Route::get('/profiel', 'UserController@profile')->name('profile');
 Route::get('/user/{user}', 'UserController@show')->name('showuser');
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');

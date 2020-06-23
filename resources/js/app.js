@@ -14,4 +14,7 @@ $(function () {
             $("#changepassword").attr("disabled", true)
         }
     })
+
+    // Bootstrap select
+    $('select').selectpicker();
 })

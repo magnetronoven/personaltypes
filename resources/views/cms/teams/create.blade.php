@@ -17,6 +17,15 @@
             @enderror
         </div>
 
+        <div class="form-group">
+			<label for="users[]">Coaches</label>
+			<select name="users[]" id="users" multiple>
+				@foreach($coaches as $coach)
+					<option value="{{$coach->id}}">{{$coach->name." ".$coach->lastname}}</option>
+				@endforeach
+			</select>
+		</div>
+
         <button type="submit" class="btn btn-primary">Opslaan</button>
     </form>
 </div>
