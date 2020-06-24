@@ -53,13 +53,37 @@ class User extends Authenticatable
         return $this->hasOne('App\Position', 'id', 'position_id');
     }
 
+    public function isCoachOfTeam($coachingteam)
+    {
+        foreach($this->teams()->get() as $team) {
+            if($team->id == $coachingteam->id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function isCoachOfUser($user)
+    {
+        foreach($this->teams()->get() as $team) {
+            foreach($team->users() as $player) {
+                if($player->id == $user->id) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public function setPasswordAttribute($pass){
         $this->attributes['password'] = Hash::make($pass);
     }
 
     public function hasAnyRole($roles)
     {
-        if(is_array($roles) ){
+        if(is_array($roles)) {
             foreach($roles as $role) {
                 if($this->hasRole($role)) {
                     return true;

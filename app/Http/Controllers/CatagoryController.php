@@ -20,6 +20,13 @@ class CatagoryController extends Controller
 
     public function index(Team $team, Catagory $catagory)
     {
+        // Check if user has a role to see all the teams -> otherwise check if user is coach of team
+        if(!Auth::user()->hasAnyRole(['admin'])) {
+            if(!Auth::user()->isCoachOfTeam($team)) {
+                return abort(403);
+            }
+        }
+
         $themes = $catagory->themes()->with('types')->get();
         
         return view('catagory', [
