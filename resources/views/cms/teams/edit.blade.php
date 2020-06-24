@@ -25,12 +25,13 @@
 				@foreach($coaches as $coach)
 					<option @if($team->users->contains($coach->id)) selected @endif value="{{$coach->id}}">{{$coach->name." ".$coach->lastname}}</option>
 				@endforeach
-			</select>
+            </select>
+            <small class="form-text text-muted">Om een coach te worden moet de gebruiker de juiste rol hebben.</small>
 		</div>
 
         <div class="m-form__action--buttons">
             <button type="submit" class="btn btn-primary">Opslaan</button>
-            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>
+            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder Team</button>
         </div>
     </form>
 

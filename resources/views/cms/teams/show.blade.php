@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h3>{{$team->name}}</h3>
-    <a href="{{ route('users.create', ['team' => $team->name]) }}">Voeg speler toe</a>
+    <a href="{{ route('users.create', ['team' => $team->name, 'redirect' => Request::path()]) }}">Voeg speler toe</a>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -18,7 +18,7 @@
                     <tr>
                         <td scope="col">{{$player->name." ".$player->lastname}}</td>
                         <td scope="col">{{$player->profile}}</td>
-                        <td scope="col"><a href="{{ route('users.edit', ['user' => $player->id]) }}">Wijzig</a></td>
+                        <td scope="col"><a href="{{ route('users.edit', ['user' => $player->id, 'redirect' => Request::path()]) }}">Wijzig</a></td>
                     </tr>
                 @endforeach
             </tbody>

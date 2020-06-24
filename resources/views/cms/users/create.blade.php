@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-	<h3>Voeg speler/user toe</h3>
-	<form id="user-form" method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+	<h3>Voeg Lid/gebruiker toe</h3>
+	<form id="user-form" method="POST" action="{{ route('users.store', ['redirect' => $redirect]) }}" enctype="multipart/form-data">
 		@csrf
 		
 		<div class="form-group">

@@ -21,7 +21,7 @@
 
         <div class="m-form__action--buttons">
             <button type="submit" class="btn btn-primary">Opslaan</button>
-            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>
+            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder Categorie</button>
         </div>
     </form>
 

@@ -46,6 +46,7 @@ class UserController extends Controller
             'team' => Team::where('name', $request->input('team'))->first(),
             'positions' => Position::all(),
             'roles' => Role::all(),
+            'redirect' => $request->input('redirect'),
         ]);
     }
 
@@ -54,6 +55,10 @@ class UserController extends Controller
         $user = User::create($this->validateform());
         $user->roles()->attach(request('roles'));
 
+        if($request->input('redirect')) {
+            return redirect($request->input('redirect'));
+        }
+
         if($request->has('team_id')) {
             return redirect()->route('teams.show', ['team' => Team::where('id', request("team_id"))->first()->name]);
         }
@@ -61,13 +66,14 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function edit(User $user)
+    public function edit(Request $request, User $user)
     {
         return view('cms.users.edit', [
             'user' => $user,
             'positions' => Position::all(),
             'teams' => Team::all(),
             'roles' => Role::all(),
+            'redirect' => $request->input('redirect'),
         ]);
     }
 
@@ -99,6 +105,10 @@ class UserController extends Controller
         $user->position_id = request("position_id");
         $user->save();
         $user->roles()->sync(request('roles'));
+
+        if($request->input('redirect')) {
+            return redirect($request->input('redirect'));
+        }
 
         if($request->has('team_id') && !is_null(request("team_id"))) {
             return redirect()->route('teams.show', ['team' => Team::where('id', request("team_id"))->first()->name]);

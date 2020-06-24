@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h3>Wijzig speler/user</h3>
-    <form id="user-form" method="POST" action="{{ route('users.update', ['user' => $user->id]) }}" enctype="multipart/form-data">
+    <h3>Wijzig Lid/gebruiker</h3>
+    <form id="user-form" method="POST" action="{{ route('users.update', ['user' => $user->id, 'redirect' => $redirect]) }}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         
@@ -105,7 +105,7 @@
 
         <div class="m-form__action--buttons">
             <button type="submit" class="btn btn-primary">Opslaan</button>
-            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder</button>
+            <button type="submit" class="btn btn-danger"form="delete-form">Verwijder Gebruiker</button>
         </div>
     </form>
 
