@@ -19,6 +19,7 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cms', 'cms\CmsController@index')->name('cms');
 
+Route::get('/cms/users/coaches', 'cms\UserController@coaches')->name('users.coaches');
 Route::get('/cms/users/admins', 'cms\UserController@admins')->name('users.admins');
 
 Route::resource('cms/teams', 'cms\TeamController');

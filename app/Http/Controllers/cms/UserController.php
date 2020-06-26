@@ -40,6 +40,19 @@ class UserController extends Controller
         ]);
     }
 
+    public function coaches()
+    {
+        $users = User::with('roles')->whereHas(
+            'roles', function($q){
+                $q->where('role', 'coach');
+            }
+        )->get();
+
+        return view('cms.users.coaches', [
+            'users' => $users,
+        ]);
+    }
+
     public function create(Request $request)
     {
         return view('cms.users.create', [

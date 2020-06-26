@@ -8,6 +8,7 @@
             <h4>Admins en leden</h4>
             <ul>
                 <li><a href="{{ route('users.index') }}">Alle gebruikers/leden</a></li>
+                <li><a href="{{ route('users.coaches') }}">Alle coaches</a></li>
                 <li><a href="{{ route('users.admins') }}">Alle admins</a></li>
             </ul>
         </div>
