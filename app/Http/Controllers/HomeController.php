@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Testmail;
 use App\Catagory;
 
 class HomeController extends Controller
@@ -39,4 +41,10 @@ class HomeController extends Controller
             'catagory' => $catagory,
         ]);
     }
+
+    // public function email()
+    // {
+    //     return new Testmail();
+    //     Mail::to('email@email.com')->send(new Testmail());
+    // }
 }

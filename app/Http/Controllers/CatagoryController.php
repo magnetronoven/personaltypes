@@ -22,7 +22,7 @@ class CatagoryController extends Controller
     {
     
         if($this->notAllowedToSeeProfile($team)) {
-            return abort(403);
+            return abort(401);
         }
 
         $themes = $catagory->themes()->with('types')->get();

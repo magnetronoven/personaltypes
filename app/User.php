@@ -93,9 +93,9 @@ class User extends Authenticatable
         return false;
     }
 
-    public function setPasswordAttribute($pass){
-        $this->attributes['password'] = Hash::make($pass);
-    }
+    // public function setPasswordAttribute($pass){
+    //     $this->attributes['password'] = Hash::make($pass);
+    // }
 
     public function hasAnyRole($roles)
     {

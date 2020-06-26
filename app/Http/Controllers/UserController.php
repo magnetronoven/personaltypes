@@ -21,7 +21,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         if($this->notAllowedToSeeProfile($user)) {
-            return abort(403);
+            return abort(401);
         }
 
         return view('showuser', [

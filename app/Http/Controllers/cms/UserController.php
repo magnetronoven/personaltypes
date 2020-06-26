@@ -65,7 +65,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user = User::create($this->validateform());
+        $this->validateform();
+
+        $user = User::create([
+            'name' => request("name"),
+            'lastname' => request("lastname"),
+            'profile' => request("profile"),
+            'dmd' => request("dmd"),
+            'email' => request("email"),
+            'password' => Hash::make(request("password")),
+            'team_id' => request("team_id"),
+            'position_id' => request("position_id"),
+        ]);
+
         $user->roles()->attach(request('roles'));
 
         if($request->input('redirect')) {
@@ -106,7 +118,7 @@ class UserController extends Controller
         ]);
 
         if($request->has('checkpassword')){
-            $user->password = request("password");
+            $user->password = Hash::make(request("password"));
         }
         
         $user->name = request("name");
