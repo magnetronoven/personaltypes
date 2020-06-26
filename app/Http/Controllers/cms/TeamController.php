@@ -61,6 +61,9 @@ class TeamController extends Controller
             }
         )->get();
 
+        // Merge all the coaches, plus the coaches who dont have a coach role but still are coach of this team.
+        $coaches = $coaches->merge($team->users()->get());
+
         return view('cms.teams.edit', [
             'team' => $team,
             'coaches' => $coaches,
