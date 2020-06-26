@@ -166,6 +166,7 @@ return [
         'minute'                => 'minuut',
         'mobile'                => 'mobiel',
         'month'                 => 'maand',
+        'lastname'              => 'achternaam',
         'name'                  => 'naam',
         'password'              => 'wachtwoord',
         'password_confirmation' => 'wachtwoordbevestiging',

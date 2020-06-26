@@ -84,10 +84,6 @@ class UserController extends Controller
             return redirect($request->input('redirect'));
         }
 
-        if($request->has('team_id')) {
-            return redirect()->route('teams.show', ['team' => Team::where('id', request("team_id"))->first()->name]);
-        }
-
         return redirect()->route('users.index');
     }
 

@@ -9,6 +9,7 @@
             <thead>
                 <tr>
                     <th scope="col">Naam</th>
+                    <th scope="col">Positie</th>
                     <th scope="col">Profiel</th>
                     <th scope="col"></th>
                 </tr>
@@ -17,6 +18,7 @@
                 @foreach($team->players as $player)
                     <tr>
                         <td scope="col">{{$player->name." ".$player->lastname}}</td>
+                        <td scope="col">@if($player->position){{$player->position->position}}@endif</td>
                         <td scope="col">{{$player->profile}}</td>
                         <td scope="col"><a href="{{ route('users.edit', ['user' => $player->id, 'redirect' => Request::path()]) }}">Wijzig</a></td>
                     </tr>
