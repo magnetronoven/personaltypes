@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h3>Leden/Gebruikers</h3>
-    <a href="{{ route('users.create', ['redirect' => Request::path()]) }}">Maak nieuw user aan</a>
+    <a href="{{ route('users.create', ['redirect' => Request::path()]) }}">Maak nieuwe gebruiker aan</a>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

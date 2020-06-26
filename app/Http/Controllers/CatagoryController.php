@@ -15,7 +15,7 @@ class CatagoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('checkRole:admin,coach');
+        $this->middleware('checkRole:admin,coach,eigen-team-zien');
     }
 
     public function index(Team $team, Catagory $catagory)
@@ -43,6 +43,7 @@ class CatagoryController extends Controller
      
         if(Auth::user()->hasRole('admin')) $isAllowed = true;
         if(Auth::user()->isCoachOfTeam($team)) $isAllowed = true;
+        if(Auth::user()->isInTeam($team)) $isAllowed = true;
 
         return !$isAllowed;
     }

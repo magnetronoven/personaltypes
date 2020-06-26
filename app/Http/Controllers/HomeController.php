@@ -33,12 +33,19 @@ class HomeController extends Controller
             return redirect()->route('profile');
         }
 
+        // User can only see his whole team if he has the appropriate role
+        $myteam = null;
+        if($user->hasRole("eigen-team-zien")) {
+            $myteam = $user->team()->with('players')->first();
+        }
+
         $teams = $user->teams()->with('players')->get();
         $catagory = Catagory::first();
 
         return view('home', [
             'teams' => $teams,
             'catagory' => $catagory,
+            'myteam' => $myteam,
         ]);
     }
 

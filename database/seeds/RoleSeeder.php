@@ -25,16 +25,10 @@ class RoleSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        // DB::table('roles')->insert([
-        //     'role' => 'eigen-profiel-zien',
-        //     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        //     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-
-        // DB::table('roles')->insert([
-        //     'role' => 'eigen-team-zien',
-        //     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        //     'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        DB::table('roles')->insert([
+            'role' => 'eigen-team-zien',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

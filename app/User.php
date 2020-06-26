@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Team', 'coaches');
     }
 
+    public function team()
+    {
+        return $this->hasOne('App\Team', 'id', 'team_id');
+    }
+
     public function roles()
     {
         return $this->belongsToMany('App\Role');
@@ -90,6 +95,24 @@ class User extends Authenticatable
             }
         }   
 
+        return false;
+    }
+
+    public function isInTeamWithUser($user)
+    {
+        if(Auth::user()->team_id == $user->team_id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isInTeam($team)
+    {
+        if(Auth::user()->team_id == $team->id) {
+            return true;
+        }
+        
         return false;
     }
 

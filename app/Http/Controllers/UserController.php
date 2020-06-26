@@ -15,7 +15,7 @@ class UserController extends Controller
     public function __construct() {
         $this->middleware('auth');
         // $this->middleware('checkRole:eigen-profiel-zien')->only('profile');
-        $this->middleware('checkRole:admin,coach')->only('show');
+        $this->middleware('checkRole:admin,coach,eigen-team-zien')->only('show');
     }
 
     public function show(User $user)
@@ -37,6 +37,7 @@ class UserController extends Controller
         if(Auth::user()->hasRole('admin')) $isAllowed = true;
         if(Auth::user()->isCoachOfUser($user)) $isAllowed = true;
         if(Auth::user()->isCoachInTeam($user)) $isAllowed = true;
+        if(Auth::user()->isInTeamWithUser($user)) $isAllowed = true;
 
         return !$isAllowed;
     }
