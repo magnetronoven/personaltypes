@@ -20,17 +20,25 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        // Check if user has a role to see all the teams -> otherwise check if user is coach of team
-        if(!Auth::user()->hasAnyRole(['admin'])) {
-            if(!Auth::user()->isCoachOfTeam($user)) {
-                return abort(403);
-            }
+        if($this->notAllowedToSeeProfile($user)) {
+            return abort(403);
         }
 
         return view('showuser', [
             'user' => $user,
             'catagories' => Catagory::with('themes.types')->get(),
         ]);
+    }
+
+    private function notAllowedToSeeProfile($user)
+    {
+        $isAllowed = false;
+     
+        if(Auth::user()->hasRole('admin')) $isAllowed = true;
+        if(Auth::user()->isCoachOfUser($user)) $isAllowed = true;
+        if(Auth::user()->isCoachInTeam($user)) $isAllowed = true;
+
+        return !$isAllowed;
     }
 
     public function profile()

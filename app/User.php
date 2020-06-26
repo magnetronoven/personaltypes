@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -67,12 +68,27 @@ class User extends Authenticatable
     public function isCoachOfUser($user)
     {
         foreach($this->teams()->get() as $team) {
-            foreach($team->users() as $player) {
+            foreach($team->players()->get() as $player) {
                 if($player->id == $user->id) {
                     return true;
                 }
             }
         }
+
+        return false;
+    }
+
+    public function isCoachInTeam($user)
+    {
+        $coachingteams = Auth::user()->teams()->get();
+
+        foreach($user->teams()->get() as $userteam) {
+            foreach($coachingteams as $coachingteam) {
+                if($userteam->id == $coachingteam->id) {
+                    return true;
+                }
+            }
+        }   
 
         return false;
     }
