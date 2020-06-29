@@ -10,7 +10,7 @@
                 <tr>
                     <th scope="col">Naam</th>
                     <th scope="col">Rol</th>
-                    <th scope="col">Coaching teams</th>
+                    <th scope="col">Coaching Teams</th>
                     <th scope="col"></th>
                 </tr>
             </thead>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>{{$catagory->catagory}}</h2>
+    <h2>{{$team->name}} - {{$catagory->catagory}}</h2>
 
     <h4>Coaches</h4>
     <div class="m-table__stacked">
@@ -35,7 +35,7 @@
     </div>
 
     <div class="m-table__stacked">
-        <h4>{{$team->name}}</h4>
+        <h4>Spelers</h4>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
