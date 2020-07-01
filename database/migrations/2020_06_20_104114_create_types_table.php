@@ -19,6 +19,7 @@ class CreateTypesTable extends Migration
             $table->string('description')->nullable();
             $table->string('hyperlink')->nullable();
             $table->string('connected_mbti')->nullable();
+            $table->string('connected_dmd')->nullable();
             $table->unsignedBigInteger('theme_id');
             $table->timestamps();
 
