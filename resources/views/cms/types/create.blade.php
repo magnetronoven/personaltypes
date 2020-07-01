@@ -43,8 +43,8 @@
             <label for="connected_mbti">Gekoppelde MBTI code</label>
             <input class="form-control @error('connected_mbti') is-invalid @enderror" value="{{ old('connected_mbti') }}" type="text" name="connected_mbti" id="connected_mbti">
             <small class="form-text text-muted">Mogelijkheden: (1:A | 2:AB | 3:A,B | 4:AB,C) 1:Alleen A | 2:A en B | 3:A of B | 4:A en B of C</small>
-            <small class="form-text text-muted">Voorbeeld: IN (Koppelt met code die I heeft)</small>
-            <small class="form-text text-muted">Voorbeeld: I,N (Koppelt met code die I en N heeft)</small>
+            <small class="form-text text-muted">Voorbeeld: IN (Koppelt met code die I en N heeft)</small>
+            <small class="form-text text-muted">Voorbeeld: I,N (Koppelt met code die I of N heeft)</small>
             
             @error('connected_mbti')
                 <span class="invalid-feedback" role="alert">
