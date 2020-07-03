@@ -16,7 +16,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('keywords');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('hyperlink')->nullable();
             $table->string('connected_mbti')->nullable();
             $table->string('connected_dmd')->nullable();
