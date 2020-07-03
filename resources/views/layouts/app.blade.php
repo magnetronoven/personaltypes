@@ -33,7 +33,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto m-navbar__ul">
                         @if(isset($catagories) && isset($team) && isset($catagory))
                             @foreach($catagories as $catagory)
                                 <li class="nav-item">
