@@ -1,1 +1,18 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-select/dist/css/bootstrap-select.css';
+@import 'module/index.scss';
+
+th {
+    white-space: nowrap;
+}
+
+.table-responsive {
+    background: white;
+}
