@@ -5,9 +5,11 @@
     <h2>{{$team->name}} - {{$catagory->catagory}}</h2>
 
     <h4>Coaches</h4>
+</div>
+<div class="container-catagory">
     <div class="m-table__stacked">
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped table-in-catagory">
                 <thead>
                     <tr>
                         <th scope="col">Naam</th>
@@ -33,11 +35,14 @@
             </table>
         </div>
     </div>
-
+</div>
+<div class="container">
+    <h4>Spelers</h4>
+</div>
+<div class="container-catagory">
     <div class="m-table__stacked">
-        <h4>Spelers</h4>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped table-in-catagory">
                 <thead>
                     <tr>
                         <th scope="col">Naam</th>
