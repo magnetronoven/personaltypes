@@ -73,7 +73,7 @@ class ThemeController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'theme' => ['required'],
+            'theme' => ['required', 'max:255'],
             'catagory_id' => ['required'],
         ]);
     }
