@@ -21,7 +21,16 @@ function getMBTIType($player, $types) {
     return false;
 }
 
-function MBTITagToText($player, $types) {
+function MBTITagToText($player, $theme) {
+
+    // If theme is not active for player position return nothing
+    if($player->position){
+        if(!$theme->positions->contains($player->position->id)) {
+            return '';
+        }
+    }
+
+    $types = $theme->types;
     $type = getMBTIType($player, $types);
 
     if($type) {
