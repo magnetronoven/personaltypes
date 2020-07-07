@@ -1,5 +1,5 @@
 window._ = require('lodash');
-
+// window.ClassicEditor = require( '@ckeditor/ckeditor5-build-classic' );
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This

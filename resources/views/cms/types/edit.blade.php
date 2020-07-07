@@ -20,7 +20,7 @@
         
         <div class="form-group">
             <label for="description">Beschrijving</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30" rows="10">{{ old('description', $type->description) }}</textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="ckeditor" cols="30" rows="10">{{ old('description', $type->description) }}</textarea>
 
             @error('type')
                 <span class="invalid-feedback" role="alert">
@@ -67,4 +67,6 @@
         @method('DELETE')
     </form>
 </div>
+
+<script src="{{ asset('js/ckeditor.js') }}" defer></script>
 @endsection
