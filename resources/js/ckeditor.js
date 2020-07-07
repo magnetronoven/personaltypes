@@ -7,7 +7,7 @@ ClassicEditor
         // toolbar: [ 'imageUpload' ],
         ckfinder: {
             // Upload the images to the server using the CKFinder QuickUpload command.
-            uploadUrl: `${window.location.origin}/ckfinder/connector.php?command=QuickUpload&type=Images&responseType=json`
+            uploadUrl: `${window.location.origin}/ckfinder/connector?command=QuickUpload&type=Images&responseType=json`
         }
     })
     .catch( error => {
