@@ -45,7 +45,7 @@ function MBTITagToText($player, $theme) {
 
             // $element .= "<a class='btn btn-secondary m-catagory__info' id='info".$type->id."'><i class='fas fa-info'></i></a>";
             // $element .= "<div id='template".$type->id."' style='display: none;'>".$type->description."</div>";
-            $element .= "<a class='btn btn-secondary m-catagory__info' id='info".$type->id."'><i class='fas fa-info'></i></a>";
+            $element .= "<a class='btn btn-secondary m-catagory__info' data-modal='".$type->id."' id='description-".$type->id."'><i class='fas fa-info'></i></a>";
             
         }
 
