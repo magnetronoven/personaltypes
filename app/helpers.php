@@ -36,7 +36,7 @@ function MBTITagToText($player, $theme) {
     if($type) {
         $element = '<div class="m-catagory__type">';
         if($type->hyperlink) {
-            $element .= '<a href="'.$type->hyperlink.'">'.$type->keywords.'</a>';
+            $element .= '<a href="'.$type->hyperlink.'" target="_blank">'.$type->keywords.'</a>';
         } else {
             $element .= $type->keywords;
         }
