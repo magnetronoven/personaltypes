@@ -71,4 +71,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    @foreach ($types as $type)
+        tippy(`#info{{$type->id}}`, {content: `{!!$type->description!!}`, allowHTML: true, trigger: 'click', maxWidth: 500,interactive: true});
+    @endforeach
+</script>
+
+
 @endsection
