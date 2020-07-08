@@ -3,9 +3,11 @@ $(function() {
     const modals = document.querySelectorAll(".m-catagory--modal__modal");
     const buttons = document.querySelectorAll(".m-catagory__info");
     const closeButtons = document.querySelectorAll(".close-modal");
+    const body = document.querySelector("body");
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
+            body.style.overflowY = "hidden"
             modalContainer.style.display = "block";
             let typeId = button.getAttribute("data-modal");
 
@@ -28,6 +30,7 @@ $(function() {
     })
 
     function closeModal() {
+        body.style.overflowY = "unset"
         modalContainer.style.display = "none"
         modals.forEach((modal) => {
             modal.style.display = "none";
