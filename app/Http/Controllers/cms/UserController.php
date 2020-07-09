@@ -102,12 +102,12 @@ class UserController extends Controller
     {
         // Unique email field requires weird validation ¯\_(ツ)_/¯
         request()->validate([
-            'name' => ['required'],
-            'lastname' => ['required'],
-            'profile' => ['nullable'],
-            'dmd' => ['nullable'],
-            'email' => ['nullable', 'unique:users,email,'.$user->id],
-            'password' => ['nullable'],
+            'name' => ['required', 'max:255'],
+            'lastname' => ['required', 'max:255'],
+            'profile' => ['nullable', 'max:255'],
+            'dmd' => ['nullable', 'max:255'],
+            'email' => ['nullable', 'unique:users,email,'.$user->id, 'max:255'],
+            'password' => ['nullable', 'max:255'],
             'team_id' => ['nullable'],
             'position_id' => ['nullable'],
             'roles' => ['nullable', 'array'],
@@ -143,12 +143,12 @@ class UserController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'name' => ['required'],
-            'lastname' => ['required'],
-            'profile' => ['nullable'],
-            'dmd' => ['nullable'],
-            'email' => ['nullable', 'unique:users'],
-            'password' => ['nullable'],
+            'name' => ['required', 'max:255'],
+            'lastname' => ['required', 'max:255'],
+            'profile' => ['nullable', 'max:255'],
+            'dmd' => ['nullable', 'max:255'],
+            'email' => ['nullable', 'unique:users', 'max:191'],
+            'password' => ['nullable', 'max:255'],
             'team_id' => ['nullable'],
             'position_id' => ['nullable'],
             'roles' => ['nullable', 'array'],

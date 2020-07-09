@@ -21,19 +21,32 @@ function getMBTIType($player, $types) {
     return false;
 }
 
-function MBTITagToText($player, $types) {
+function MBTITagToText($player, $theme) {
+
+    // If theme is not active for player position return nothing
+    if($player->position){
+        if(!$theme->positions->contains($player->position->id)) {
+            return '';
+        }
+    }
+
+    $types = $theme->types;
     $type = getMBTIType($player, $types);
 
     if($type) {
-        $element = '';
+        $element = '<div class="m-catagory__type">';
         if($type->hyperlink) {
-            $element .= '<div class="m-catagory__type"><a href="'.$type->hyperlink.'">'.$type->keywords.'</a>';
+            $element .= '<a href="'.$type->hyperlink.'" target="_blank">'.$type->keywords.'</a>';
         } else {
-            $element .= '<div class="m-catagory__type">'.$type->keywords;
+            $element .= $type->keywords;
         }
 
         if($type->description) {
-            $element .= '<a tabindex="0" class="btn btn-secondary m-catagory__info" role="button" data-toggle="popover" data-trigger="focus" data-content="'.$type->description.'"><i class="fas fa-info"></i></a>';
+
+            // $element .= "<a class='btn btn-secondary m-catagory__info' id='info".$type->id."'><i class='fas fa-info'></i></a>";
+            // $element .= "<div id='template".$type->id."' style='display: none;'>".$type->description."</div>";
+            $element .= "<a class='btn btn-secondary m-catagory__info' data-modal='".$type->id."' id='description-".$type->id."'><i class='fas fa-info'></i></a>";
+            
         }
 
         $element .= '</div>';

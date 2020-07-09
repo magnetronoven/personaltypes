@@ -27,7 +27,7 @@
                             <td scope="col">{{$player->profile}}</td>
                             <td scope="col">{{$player->dmd}}</td>
                             @foreach($themes as $theme)
-                                <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>
+                                <td scope="col">{!! MBTITagToText($player, $theme) !!}</td>
                             @endforeach
                         </tr>
                     @endforeach
@@ -60,9 +60,9 @@
                             <td scope="col"><a href="{{ route('showuser', ['user' => $player->id]) }}">{{$player->name." ".$player->lastname}}</a></td>
                             <td scope="col">{{$player->profile}}</td>
                             <td scope="col">{{$player->dmd}}</td>
-                            <td scope="col">{{$player->position->position}}</td>
+                            <td scope="col">{{$player->position->position ?? ''}}</td>
                             @foreach($themes as $theme)
-                                <td scope="col">{!! MBTITagToText($player, $theme->types) !!}</td>
+                                <td scope="col">{!! MBTITagToText($player, $theme) !!}</td>
                             @endforeach
                         </tr>
                     @endforeach
@@ -71,4 +71,9 @@
         </div>
     </div>
 </div>
+
+@include('inc.catagoryModal')
+
+<script src="{{ asset('js/catagoryModal.js') }}"></script>
+
 @endsection

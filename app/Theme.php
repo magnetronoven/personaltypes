@@ -14,4 +14,9 @@ class Theme extends Model
     {
         return $this->hasMany('App\Type');
     }
+
+    public function positions()
+    {
+        return $this->belongsToMany('App\Position');
+    }
 }

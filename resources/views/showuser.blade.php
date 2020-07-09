@@ -43,7 +43,7 @@
                         @foreach($catagory->themes as $theme)
                             <tr>
                                 <td>{{$theme->theme}}</td>
-                                <td scope="col">{!! MBTITagToText($user, $theme->types) !!}</td>
+                                <td scope="col">{!! MBTITagToText($user, $theme) !!}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -53,4 +53,8 @@
     @endforeach
     
 </div>
+
+@include('inc.catagoryModal')
+
+<script src="{{ asset('js/catagoryModal.js') }}"></script>
 @endsection
