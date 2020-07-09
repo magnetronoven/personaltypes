@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Admins"])
     <h3>Admins</h3>
     <a href="{{ route('users.create', ['role' => 'admin', 'redirect' => Request::path()]) }}">Maak nieuwe admin aan</a>
     <div class="table-responsive">

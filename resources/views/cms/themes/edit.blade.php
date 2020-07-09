@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Categorieën/Thema's/".$theme->theme])
     <h3>Wijzig thema</h3>
     <form id="theme-form" method="POST" action="{{ route('themes.update', ['theme' => $theme->id]) }}" enctype="multipart/form-data">
         @method('PUT')

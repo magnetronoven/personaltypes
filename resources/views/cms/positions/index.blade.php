@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Posities"])
     <h3>Posities</h3>
     <a href="{{ route('positions.create') }}">Maak nieuw positie aan</a>
     <div class="table-responsive">

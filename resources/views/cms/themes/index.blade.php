@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Categorieën/Thema's"])
     <h3>Alle thema's</h3>
     <div class="table-responsive">
         <table class="table table-striped">

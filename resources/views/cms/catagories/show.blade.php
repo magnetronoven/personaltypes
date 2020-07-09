@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-
-    <h3>{{$catagory->catagory}}</h3>
+    @include('inc.breadcrumb', ['location' => 'CMS/Categorieën/'.$catagory->catagory])
+    <h3>Categorie: {{$catagory->catagory}}</h3>
     <a href="{{ route('themes.create', ['catagory' => $catagory->catagory]) }}">Voeg thema toe</a>
     <div class="table-responsive">
         <table class="table table-striped">

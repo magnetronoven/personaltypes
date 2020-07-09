@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-
+    @include('inc.breadcrumb', ['location' => "CMS/Posities/Wijzig"])
     <h3>Wijzig team</h3>
     <form id="position-form" method="POST" action="{{ route('positions.update', ['position' => $position->id]) }}">
         @csrf

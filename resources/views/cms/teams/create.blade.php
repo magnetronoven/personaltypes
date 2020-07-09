@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Teams/Nieuw"])
     <h3>Voeg team toe</h3>
     <form id="team-form" method="POST" action="{{ route('teams.store') }}" enctype="multipart/form-data">
         @csrf

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => 'CMS/Categorieën/Nieuw'])
     <h3>Voeg categorie toe</h3>
     <form id="catagory-form" method="POST" action="{{ route('catagories.store') }}" enctype="multipart/form-data">
         @csrf
