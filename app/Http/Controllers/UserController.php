@@ -27,6 +27,7 @@ class UserController extends Controller
         return view('showuser', [
             'user' => $user,
             'catagories' => Catagory::with('themes.types')->get(),
+            'types' => Type::all(),
         ]);
     }
 
@@ -47,6 +48,7 @@ class UserController extends Controller
         return view('showuser', [
             'user' => Auth::user(),
             'catagories' => Catagory::with('themes.types')->get(),
+            'types' => Type::all(),
         ]);
     }
 }
