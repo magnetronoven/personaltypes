@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Categorieën/Thema's/Nieuw"])
     <h3>Voeg type toe</h3>
     <form id="type-form" method="POST" action="{{ route('types.store') }}" enctype="multipart/form-data">
         @csrf

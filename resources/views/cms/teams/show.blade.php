@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Teams/".$team->name])
     <h3>{{$team->name}}</h3>
     <a href="{{ route('users.create', ['team' => $team->name, 'redirect' => Request::path()]) }}">Voeg speler toe</a>
     <div class="table-responsive">

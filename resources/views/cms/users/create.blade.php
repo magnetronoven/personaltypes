@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+	@include('inc.breadcrumb', ['location' => "CMS/Users/Nieuw"])
 	<h3>Voeg Lid/gebruiker toe</h3>
 	<form id="user-form" method="POST" action="{{ route('users.store', ['redirect' => $redirect]) }}" enctype="multipart/form-data">
 		@csrf

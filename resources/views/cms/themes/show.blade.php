@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-
-    <h3>{{$theme->theme}}</h3>
+    @include('inc.breadcrumb', ['location' => "CMS/Categorieën/Thema's/".$theme->theme])
+    <h3>Thema: {{$theme->theme}}</h3>
     <a href="{{ route('types.create', ['theme_id' => $theme->id]) }}">Voeg type toe</a>
     <div class="table-responsive">
         <table class="table table-striped">
