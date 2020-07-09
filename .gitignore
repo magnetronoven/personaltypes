@@ -17,3 +17,4 @@ yarn-error.log
 /backup
 public/js/ckeditor.js
 public/js/catagoryModal.js
+/.vscode
