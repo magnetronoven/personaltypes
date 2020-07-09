@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Categorieën/Thema's/Types"])
     <h3>Wijzig type</h3>
     <form id="type-form" method="POST" action="{{ route('types.update', ['type' => $type->id]) }}" enctype="multipart/form-data">
         @method('PUT')

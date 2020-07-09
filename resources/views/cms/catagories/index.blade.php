@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => 'CMS/Categorieën'])
     <h3>Categorieën</h3>
     <a href="{{ route('catagories.create') }}">Maak nieuwe categorie aan</a>
     <div class="table-responsive">

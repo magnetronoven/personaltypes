@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Users"])
     <h3>Leden/Gebruikers</h3>
     <a href="{{ route('users.create', ['redirect' => Request::path()]) }}">Maak nieuwe gebruiker aan</a>
     <div class="table-responsive">

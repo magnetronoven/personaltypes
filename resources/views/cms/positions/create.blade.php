@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Posities/Nieuw"])
     <h3>Voeg team toe</h3>
     <form id="position-form" method="POST" action="{{ route('positions.store') }}" enctype="multipart/form-data">
         @csrf

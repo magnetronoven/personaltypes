@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-
+    @include('inc.breadcrumb', ['location' => 'CMS/Categorieën/'.$catagory->catagory])
     <h3>Wijzig categorie</h3>
     <form id="catagory-form" method="POST" action="{{ route('catagories.update', ['catagory' => $catagory->catagory]) }}">
         @csrf

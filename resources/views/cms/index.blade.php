@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="m-cms container">
+    @include('inc.breadcrumb', ['location' => 'CMS'])
     <h2>Cms</h2>
     <div class="m-cms__grid">
         <div class="m-cms__grid__item">

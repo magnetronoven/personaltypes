@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('inc.breadcrumb', ['location' => "CMS/Users/Wijzig"])
     <h3>Wijzig Lid/gebruiker</h3>
     <form id="user-form" method="POST" action="{{ route('users.update', ['user' => $user->id, 'redirect' => $redirect]) }}" enctype="multipart/form-data">
         @method('PUT')
