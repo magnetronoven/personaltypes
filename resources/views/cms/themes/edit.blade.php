@@ -18,6 +18,18 @@
             @enderror
         </div>
 
+        <div class="form-group">
+            <label>Zichtbaar voor positie</label>
+            @foreach ($positions as $position)
+                <div class="form-check">
+                    <input class="form-check-input" name="positions[{{$position->id}}]" type="checkbox" value="{{$position->id}}" id="{{$position->id}}" @if($theme->positions->contains($position->id)) checked @endif>
+                    <label class="form-check-label" for="{{$position->id}}">
+                        {{$position->position}}
+                    </label>
+                </div>
+            @endforeach
+        </div>
+
         <input name="catagory_id" type="hidden" value="{{ $theme->catagory_id }}">
 
         <div class="m-form__action--buttons">

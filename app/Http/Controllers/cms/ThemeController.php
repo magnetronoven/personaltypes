@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Theme;
 use App\Type;
+use App\Position;
 
 class ThemeController extends Controller
 {
@@ -40,12 +41,15 @@ class ThemeController extends Controller
 
         return view('cms.themes.create', [
             'catagory' => Catagory::where('catagory', $request->input('catagory'))->first(),
+            'positions' => Position::all(),
         ]);
     }
 
     public function store(Request $request)
     {
-        Theme::create($this->validateform());
+        $theme = Theme::create($this->validateform());
+
+        $theme->positions()->attach(request('positions'));
         return redirect()->route('catagories.show', ['catagory' => Catagory::where('id', $request->input('catagory_id'))->first()]);
     }
     
@@ -53,6 +57,7 @@ class ThemeController extends Controller
     {
         return view('cms.themes.edit', [
             'theme' => $theme,
+            'positions' => Position::all(),
         ]);
     }
 
@@ -61,6 +66,7 @@ class ThemeController extends Controller
         $this->validateform();
         $theme->theme = request("theme");
         $theme->save();
+        $theme->positions()->sync(request('positions'));
         return redirect()->route('themes.index');
     }
 
@@ -73,8 +79,9 @@ class ThemeController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'theme' => ['required'],
+            'theme' => ['required', 'max:255'],
             'catagory_id' => ['required'],
+            'positions' => ['nullable', 'array'],
         ]);
     }
 }

@@ -67,10 +67,10 @@ class TypeController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'keywords' => ['required'],
-            'description' => ['nullable'],
-            'hyperlink' => ['nullable'],
-            'connected_mbti' => ['nullable'],
+            'keywords' => ['required', 'max:255'],
+            'description' => ['nullable', 'max:65000'],
+            'hyperlink' => ['nullable', 'max:255'],
+            'connected_mbti' => ['nullable', 'max:255'],
             'theme_id' => ['required'],
         ]);
     }

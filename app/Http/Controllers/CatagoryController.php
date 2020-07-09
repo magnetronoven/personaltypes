@@ -33,6 +33,7 @@ class CatagoryController extends Controller
             'catagory' => $catagory,
             'themes' => $themes,
             'team' => $team,
+            'types' => Type::all(),
         ]);
     }
 

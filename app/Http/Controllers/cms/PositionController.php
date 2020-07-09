@@ -58,7 +58,7 @@ class PositionController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'position' => ['required'],
+            'position' => ['required', 'max:255'],
         ]);
     }
 }
