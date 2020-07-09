@@ -74,7 +74,7 @@ class TeamController extends Controller
     {
         // Unique name field requires weird validation ¯\_(ツ)_/¯
         request()->validate([
-            'name' => 'required|unique:teams,name,'.$team->id,
+            'name' => ['required', 'unique:teams,name,'.$team->id, 'max:191']
         ]);
         $team->name = request("name");
         $team->save();
@@ -92,7 +92,7 @@ class TeamController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'name' => ['required', 'unique:teams'],
+            'name' => ['required', 'unique:teams', 'max:191'],
         ]);
     }
 }

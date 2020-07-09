@@ -9,4 +9,9 @@ class Position extends Model
     protected $fillable = [
         'position',
     ];
+
+    public function themes()
+    {
+        return $this->belongsToMany('App\Themes');
+    }
 }

@@ -67,7 +67,7 @@ class CatagoryController extends Controller
     protected function validateform()
     {
         return request()->validate([
-            'catagory' => ['required'],
+            'catagory' => ['required', 'max:255'],
         ]);
     }
 }
