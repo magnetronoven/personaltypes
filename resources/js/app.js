@@ -2,7 +2,6 @@ require('./bootstrap');
 // import * from 'bootstrap-select';
 // console.log(selectpicker)
 
-
 $(function () {
     require('bootstrap-select/js/bootstrap-select');
     $('[data-toggle="popover"]').popover()
