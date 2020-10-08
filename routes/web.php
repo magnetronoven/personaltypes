@@ -33,3 +33,6 @@ Route::resource('cms/types', 'cms\TypeController');
 Route::get('/profiel', 'UserController@profile')->name('profile');
 Route::get('/user/{user}', 'UserController@show')->name('showuser');
 Route::get('/{team}/{catagory}', 'CatagoryController@index')->name('catagory');
+
+//Scoreboard
+Route::get('/scoreboard', 'ScoreboardController@index')->name('scoreboard.index')->middleware('auth');
